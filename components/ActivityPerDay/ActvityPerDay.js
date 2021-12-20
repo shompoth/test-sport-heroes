@@ -36,9 +36,14 @@ const ActvityPerDay = ({ item }) => {
                 );
             }
         } else if (type === "bonus") {
-            return <Bonus />;
+            return <Bonus points={item.payload.points} />;
         } else if (type === "challenge") {
-            return <Challenge />;
+            return (
+                <Challenge
+                    title={item.payload.display.title}
+                    points={item.payload.display.goal}
+                />
+            );
         }
     };
 

@@ -9,4 +9,7 @@ export default {
         flexDirection: "row",
         alignItems: "center",
     },
+    flexRow: {
+        flexDirection: "row",
+    },
 };

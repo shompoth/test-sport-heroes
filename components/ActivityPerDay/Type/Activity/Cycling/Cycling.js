@@ -42,14 +42,14 @@ const Cycling = ({ distance, duration, points }) => {
                     <View style={defaultStyles.mb3}>
                         <Text>Vélo</Text>
                     </View>
-                    <View style={styles.description}>
+                    <View style={defaultStyles.flexRow}>
                         <Text>{convertToKm(distance)} km</Text>
                         <Text> - </Text>
                         <Text>{convertToHours(duration)}</Text>
                     </View>
                 </View>
             </View>
-            <View style={styles.points}>
+            <View style={defaultStyles.flexRow}>
                 <Text>{points}</Text>
                 <MaterialIcons name="bolt" size={17} color={globalStyles.primary} />
             </View>
@@ -63,11 +63,5 @@ const styles = StyleSheet.create({
     containerCycling: {
         flexDirection: "row",
         justifyContent: "space-between",
-    },
-    description: {
-        flexDirection: "row",
-    },
-    points: {
-        flexDirection: "row",
     },
 });

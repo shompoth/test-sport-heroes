@@ -31,7 +31,7 @@ const Walking = ({ steps, points }) => {
                     <Text>{numberSpace(steps)} pas</Text>
                 </View>
             </View>
-            <View style={styles.points}>
+            <View style={defaultStyles.flexRow}>
                 <Text>{points}</Text>
                 <MaterialIcons name="bolt" size={17} color={globalStyles.primary} />
             </View>
@@ -45,11 +45,5 @@ const styles = StyleSheet.create({
     containerWalking: {
         flexDirection: "row",
         justifyContent: "space-between",
-    },
-    points: {
-        flexDirection: "row",
-    },
-    mb3: {
-        marginBottom: 3,
     },
 });
