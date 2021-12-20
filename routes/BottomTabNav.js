@@ -1,12 +1,12 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-// Screens
-import Magazine from "../screens/Magazine";
-import Dashboard from "../screens/Dashboard";
-import More from "../screens/More";
-import Squad from "../screens/Squad";
-import Challenges from "../screens/Challenges";
+// Navigator
+import { ChallengesNavigator } from "./ChallengesStackNav";
+import { DashboardNavigator } from "./DashboardStackNav";
+import { MagazineNavigator } from "./MagazineStackNav";
+import { MoreNavigator } from "./MoreStackNav";
+import { SquadNavigator } from "./SquadStackNav";
 
 //Styles
 import globalStyles from "../styles/globalStyles";
@@ -23,10 +23,13 @@ export const BottomNavigator = () => {
             screenOptions={{
                 tabBarActiveTintColor: globalStyles.primary,
             }}
+            screenOptions={{
+                headerShown: false,
+            }}
         >
             <BottomTab.Screen
                 name="Magazine"
-                component={Magazine}
+                component={MagazineNavigator}
                 options={{
                     tabBarIcon: ({ color, size }) => (
                         <MaterialIcons name="smartphone" size={size} color={color} />
@@ -35,7 +38,7 @@ export const BottomNavigator = () => {
             />
             <BottomTab.Screen
                 name="Challenges"
-                component={Challenges}
+                component={ChallengesNavigator}
                 options={{
                     tabBarIcon: ({ color, size }) => (
                         <MaterialIcons name="flag" size={size} color={color} />
@@ -44,7 +47,7 @@ export const BottomNavigator = () => {
             />
             <BottomTab.Screen
                 name="Dashboard"
-                component={Dashboard}
+                component={DashboardNavigator}
                 options={{
                     tabBarIcon: ({ color, size }) => (
                         <MaterialIcons name="bolt" size={size} color={color} />
@@ -52,8 +55,8 @@ export const BottomNavigator = () => {
                 }}
             />
             <BottomTab.Screen
-                name="Équipes"
-                component={Squad}
+                name="Équipe"
+                component={SquadNavigator}
                 options={{
                     tabBarIcon: ({ color, size }) => (
                         <MaterialIcons name="groups" size={size} color={color} />
@@ -62,7 +65,7 @@ export const BottomNavigator = () => {
             />
             <BottomTab.Screen
                 name="Plus"
-                component={More}
+                component={MoreNavigator}
                 options={{
                     tabBarIcon: ({ color, size }) => (
                         <MaterialIcons name="more-horiz" size={size} color={color} />

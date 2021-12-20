@@ -8,7 +8,7 @@ const DashboardStack = createStackNavigator();
 export const DashboardNavigator = () => {
     return (
         <DashboardStack.Navigator>
-            <DashboardStack.Screen name="Dashboard" component={Dashboard} />
+            <DashboardStack.Screen name="Nouvelles Activités" component={Dashboard} />
         </DashboardStack.Navigator>
     );
 };

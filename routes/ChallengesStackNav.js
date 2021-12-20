@@ -5,7 +5,7 @@ import Challenges from "../screens/Challenges";
 
 const ChallengesStack = createStackNavigator();
 
-export const MoreNavigator = () => {
+export const ChallengesNavigator = () => {
     return (
         <ChallengesStack.Navigator>
             <ChallengesStack.Screen name="Challenges" component={Challenges} />
