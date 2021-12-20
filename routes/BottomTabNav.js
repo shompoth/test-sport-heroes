@@ -23,6 +23,7 @@ export const BottomNavigator = () => {
             screenOptions={{
                 headerShown: false,
                 tabBarActiveTintColor: globalStyles.primary,
+                tabBarStyle: { backgroundColor: globalStyles.dark },
             }}
         >
             <BottomTab.Screen

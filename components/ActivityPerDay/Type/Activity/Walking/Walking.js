@@ -26,13 +26,15 @@ const Walking = ({ steps, points }) => {
                 </View>
                 <View>
                     <View style={defaultStyles.mb3}>
-                        <Text>Marche</Text>
+                        <Text style={{ color: globalStyles.white }}>Marche</Text>
                     </View>
-                    <Text>{numberSpace(steps)} pas</Text>
+                    <Text style={{ color: globalStyles.white }}>
+                        {numberSpace(steps)} pas
+                    </Text>
                 </View>
             </View>
             <View style={defaultStyles.flexRow}>
-                <Text>{points}</Text>
+                <Text style={{ color: globalStyles.white }}>{points}</Text>
                 <MaterialIcons name="bolt" size={17} color={globalStyles.primary} />
             </View>
         </TouchableOpacity>

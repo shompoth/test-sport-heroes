@@ -40,17 +40,21 @@ const Cycling = ({ distance, duration, points }) => {
                 </View>
                 <View>
                     <View style={defaultStyles.mb3}>
-                        <Text>Vélo</Text>
+                        <Text style={{ color: globalStyles.white }}>Vélo</Text>
                     </View>
                     <View style={defaultStyles.flexRow}>
-                        <Text>{convertToKm(distance)} km</Text>
-                        <Text> - </Text>
-                        <Text>{convertToHours(duration)}</Text>
+                        <Text style={{ color: globalStyles.white }}>
+                            {convertToKm(distance)} km
+                        </Text>
+                        <Text style={{ color: globalStyles.white }}> - </Text>
+                        <Text style={{ color: globalStyles.white }}>
+                            {convertToHours(duration)}
+                        </Text>
                     </View>
                 </View>
             </View>
             <View style={defaultStyles.flexRow}>
-                <Text>{points}</Text>
+                <Text style={{ color: globalStyles.white }}>{points}</Text>
                 <MaterialIcons name="bolt" size={17} color={globalStyles.primary} />
             </View>
         </TouchableOpacity>

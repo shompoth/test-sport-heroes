@@ -6,6 +6,9 @@ import axios from "axios";
 import ActvityPerDay from "../components/ActivityPerDay/ActvityPerDay";
 import Spinner from "../shared/Spinner/Spinner";
 
+// Styles
+import globalStyles from "../styles/globalStyles";
+
 const Dashboard = () => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -53,5 +56,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         padding: 10,
+        backgroundColor: globalStyles.dark,
     },
 });

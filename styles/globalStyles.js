@@ -4,4 +4,5 @@ export default {
     gold: "#FFC72F",
     lightGrey: "#ccc",
     darkGrey: "#686868",
+    dark: "#0f0f0f",
 };

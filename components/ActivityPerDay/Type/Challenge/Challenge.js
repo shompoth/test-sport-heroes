@@ -8,12 +8,11 @@ import SvgFlag from "../../../../shared/SvgIcon/SvgFlag";
 import defaultStyles from "../../../../styles/defaultStyles";
 import globalStyles from "../../../../styles/globalStyles";
 
-// Icon
-import { MaterialIcons } from "@expo/vector-icons";
-
 const Challenge = ({ title, start = null, end = null, badge = null }) => {
     // State
     const [isOpen, setIsOpen] = useState(false);
+
+    const newBadge = badge;
 
     return (
         <TouchableOpacity
@@ -27,9 +26,11 @@ const Challenge = ({ title, start = null, end = null, badge = null }) => {
                 </View>
                 <View>
                     <View style={defaultStyles.mb3}>
-                        <Text>Challenge {start && (end ? "complété" : "à finir")}</Text>
+                        <Text style={{ color: globalStyles.white }}>
+                            Challenge {start && (end ? "complété" : "à finir")}
+                        </Text>
                     </View>
-                    <Text>{title}</Text>
+                    <Text style={{ color: globalStyles.white }}>{title}</Text>
                 </View>
             </View>
             <View style={styles.imageDiv}>
@@ -37,7 +38,7 @@ const Challenge = ({ title, start = null, end = null, badge = null }) => {
                     <Image
                         style={{ width: 100, height: 100 }}
                         source={{
-                            uri: "https://assets.sportheroesgroup.com/challenges/619f6fcc982b560006b557ea/Fichier2081637921388102.png?v=1637921388",
+                            uri: newBadge,
                         }}
                     />
                 )}

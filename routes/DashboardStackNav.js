@@ -1,4 +1,4 @@
-import { Image } from "react-native";
+import { Image, TouchableOpacity } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 // Image
@@ -17,7 +17,11 @@ const DashboardStack = createStackNavigator();
 
 export const DashboardNavigator = () => {
     return (
-        <DashboardStack.Navigator>
+        <DashboardStack.Navigator
+            screenOptions={{
+                headerStyle: { backgroundColor: globalStyles.dark },
+            }}
+        >
             <DashboardStack.Screen
                 name="Nouvelles activités"
                 component={Dashboard}
@@ -28,18 +32,28 @@ export const DashboardNavigator = () => {
                         borderRadius: 5,
                     },
                     headerLeft: () => (
-                        <MaterialIcons
-                            name="add-circle"
-                            size={35}
-                            color={globalStyles.primary}
-                            style={{ marginLeft: 10 }}
-                        />
+                        <TouchableOpacity
+                            activeOpacity={0.8}
+                            onPress={() => alert("Fonctionnalité pas encore disponible")}
+                        >
+                            <MaterialIcons
+                                name="add-circle"
+                                size={35}
+                                color={globalStyles.primary}
+                                style={{ marginLeft: 10 }}
+                            />
+                        </TouchableOpacity>
                     ),
                     headerRight: () => (
-                        <Image
-                            style={{ marginRight: 10, width: 35, height: 35 }}
-                            source={require("../assets/shompoth.png")}
-                        />
+                        <TouchableOpacity
+                            activeOpacity={0.8}
+                            onPress={() => alert("Page profil pas encore disponible")}
+                        >
+                            <Image
+                                style={{ marginRight: 10, width: 35, height: 35 }}
+                                source={require("../assets/shompoth.png")}
+                            />
+                        </TouchableOpacity>
                     ),
                 }}
             />

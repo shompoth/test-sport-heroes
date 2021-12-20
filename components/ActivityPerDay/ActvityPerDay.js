@@ -8,6 +8,9 @@ import Challenge from "../../components/ActivityPerDay/Type/Challenge/Challenge"
 import Cycling from "./Type/Activity/Cycling/Cycling";
 import Walking from "./Type/Activity/Walking/Walking";
 
+// Styles
+import globalStyles from "../../styles/globalStyles";
+
 const ActvityPerDay = ({ item }) => {
     // Fonctions
     const getDate = date => {
@@ -71,5 +74,6 @@ const styles = StyleSheet.create({
     },
     textDateStyle: {
         fontWeight: "bold",
+        color: globalStyles.white,
     },
 });
