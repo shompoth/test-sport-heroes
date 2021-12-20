@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 // Icon
 import { MaterialIcons } from "@expo/vector-icons";
@@ -33,7 +33,7 @@ const Cycling = ({ distance, duration, points }) => {
     };
 
     return (
-        <View style={styles.containerCycling}>
+        <TouchableOpacity style={styles.containerCycling} activeOpacity={0.8}>
             <View style={defaultStyles.svgAndDescription}>
                 <View style={defaultStyles.mr15}>
                     <SvgBiking />
@@ -53,7 +53,7 @@ const Cycling = ({ distance, duration, points }) => {
                 <Text>{points}</Text>
                 <MaterialIcons name="bolt" size={17} color={globalStyles.primary} />
             </View>
-        </View>
+        </TouchableOpacity>
     );
 };
 

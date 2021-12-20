@@ -41,7 +41,9 @@ const ActvityPerDay = ({ item }) => {
             return (
                 <Challenge
                     title={item.payload.display.title}
-                    points={item.payload.display.goal}
+                    start={item.payload.timeframe.start}
+                    end={item.payload.timeframe.end}
+                    badge={item.payload.display.badge}
                 />
             );
         }

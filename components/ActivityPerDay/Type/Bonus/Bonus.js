@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 // Composant
 import globalStyles from "../../../../styles/globalStyles";
@@ -15,7 +15,7 @@ import SvgStar from "../../../../shared/SvgIcon/SvgStar";
 
 const Bonus = ({ points }) => {
     return (
-        <View style={styles.containerBonus}>
+        <TouchableOpacity style={styles.containerBonus} activeOpacity={0.8}>
             <View style={styles.svgAndDescription}>
                 <View style={defaultStyles.mr15}>
                     <SvgStar />
@@ -26,7 +26,7 @@ const Bonus = ({ points }) => {
                 <Text>{points}</Text>
                 <MaterialIcons name="bolt" size={17} color={globalStyles.primary} />
             </View>
-        </View>
+        </TouchableOpacity>
     );
 };
 
