@@ -1,8 +1,6 @@
-# Test Sport Heroes
+# Test Sport Heroes React Native
 
-## Crée avec
-
--   React Native
+Ce projet a été initié avec expo.
 
 ## Etapes d'installation
 
@@ -20,4 +18,4 @@ Elle vous permettra d'installer toutes les dépendances nécessaires au bon fonc
 
 ### `npm start`
 
-En effectuant cette commande vous pourrez choisir votre simulateur pour lancer l'application.
+Cette commande lancera votre simulateur ou appareil virtuel.
