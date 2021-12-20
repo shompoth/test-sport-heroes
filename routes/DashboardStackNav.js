@@ -19,9 +19,14 @@ export const DashboardNavigator = () => {
     return (
         <DashboardStack.Navigator>
             <DashboardStack.Screen
-                name="Nouvelles Activités"
+                name="Nouvelles activités"
                 component={Dashboard}
                 options={{
+                    headerTitleStyle: {
+                        backgroundColor: globalStyles.lightGrey,
+                        padding: 5,
+                        borderRadius: 5,
+                    },
                     headerLeft: () => (
                         <MaterialIcons
                             name="add-circle"

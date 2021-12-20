@@ -19,12 +19,10 @@ const BottomTab = createBottomTabNavigator();
 export const BottomNavigator = () => {
     return (
         <BottomTab.Navigator
-            initialRouteName="Dashboard"
-            screenOptions={{
-                tabBarActiveTintColor: globalStyles.primary,
-            }}
+            initialRouteName="Dashboard screen"
             screenOptions={{
                 headerShown: false,
+                tabBarActiveTintColor: globalStyles.primary,
             }}
         >
             <BottomTab.Screen
