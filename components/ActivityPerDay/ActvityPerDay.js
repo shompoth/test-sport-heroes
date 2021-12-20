@@ -2,9 +2,11 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 // Composants
-import Marche from "../../components/ActivityPerDay/Type/Marche/Marche";
+// import Activity from "./Type/Activity/Activity";
 import Bonus from "../../components/ActivityPerDay/Type/Bonus/Bonus";
 import Challenge from "../../components/ActivityPerDay/Type/Challenge/Challenge";
+import Cycling from "./Type/Activity/Cycling/Cycling";
+import Walking from "./Type/Activity/Walking/Walking";
 
 const ActvityPerDay = ({ item }) => {
     // Fonctions
@@ -18,9 +20,21 @@ const ActvityPerDay = ({ item }) => {
         return newDate.toLocaleDateString("fr-FR", options);
     };
 
-    const getComponentByType = type => {
+    const getComponentByType = (type, item) => {
         if (type === "activity") {
-            return <Marche />;
+            if (item.payload.type === "Cycling") {
+                return (
+                    <Cycling
+                        distance={item.payload.distance}
+                        duration={item.payload.duration}
+                        points={item.payload.points}
+                    />
+                );
+            } else if (item.payload.type === "Walking") {
+                return (
+                    <Walking steps={item.payload.steps} points={item.payload.points} />
+                );
+            }
         } else if (type === "bonus") {
             return <Bonus />;
         } else if (type === "challenge") {
@@ -29,9 +43,11 @@ const ActvityPerDay = ({ item }) => {
     };
 
     return (
-        <View style={styles.ContainerActivity}>
-            <Text>{getDate(item.date)} </Text>
-            <View>{getComponentByType(item.type)}</View>
+        <View style={styles.containerActivity}>
+            <View style={styles.divDateStyle}>
+                <Text style={styles.textDateStyle}>{getDate(item.date)} </Text>
+            </View>
+            <View>{getComponentByType(item.type, item)}</View>
         </View>
     );
 };
@@ -39,7 +55,14 @@ const ActvityPerDay = ({ item }) => {
 export default ActvityPerDay;
 
 const styles = StyleSheet.create({
-    ContainerActivity: {
-        marginBottom: 10,
+    containerActivity: {
+        marginBottom: 20,
+    },
+    divDateStyle: {
+        marginBottom: 5,
+        fontWeight: "bold",
+    },
+    textDateStyle: {
+        fontWeight: "bold",
     },
 });

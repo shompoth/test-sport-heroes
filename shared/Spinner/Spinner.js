@@ -4,7 +4,7 @@ function Spinner() {
     return (
         <View>
             <Image
-                source={require("../assets/spinner.gif")}
+                source={require("../../assets/spinner.gif")}
                 alt={"Loading..."}
                 style={{ width: 70, height: 70 }}
             />

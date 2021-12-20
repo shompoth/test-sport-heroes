@@ -4,7 +4,7 @@ import axios from "axios";
 
 // Composants
 import ActvityPerDay from "../components/ActivityPerDay/ActvityPerDay";
-import Spinner from "../shared/Spinner";
+import Spinner from "../shared/Spinner/Spinner";
 
 const Dashboard = () => {
     const [data, setData] = useState([]);
@@ -27,16 +27,6 @@ const Dashboard = () => {
             });
     }, []);
 
-    // const fetchData = async () => {
-    //     const response = await fetch(
-    //         "https://sh-tech-interview.s3.eu-west-3.amazonaws.com/frontend/feed.json",
-    //     );
-    //     const activities = await response.json();
-    //     setData(activities);
-    //     console.log(activities.length);
-    //     setIsLoading(false);
-    // };
-
     return !isLoading ? (
         data.length > 0 ? (
             <View style={styles.container}>
@@ -50,7 +40,9 @@ const Dashboard = () => {
             <Text>Not data yet</Text>
         )
     ) : (
-        <Spinner />
+        <View style={styles.container}>
+            <Spinner />
+        </View>
     );
 };
 
@@ -60,7 +52,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: "center",
-        alignItems: "center",
         padding: 10,
     },
 });

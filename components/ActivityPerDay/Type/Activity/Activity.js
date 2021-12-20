@@ -1,14 +1,14 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-const Marche = () => {
+const Activity = () => {
     return (
         <View>
-            <Text>Marche</Text>
+            <Text>Activité</Text>
         </View>
     );
 };
 
-export default Marche;
+export default Activity;
 
 const styles = StyleSheet.create({});
