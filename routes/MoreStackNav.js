@@ -8,7 +8,7 @@ const MoreStack = createStackNavigator();
 export const MoreNavigator = () => {
     return (
         <MoreStack.Navigator>
-            <MoreStack.Screen name="More" component={More} />
+            <MoreStack.Screen name="Plus" component={More} />
         </MoreStack.Navigator>
     );
 };

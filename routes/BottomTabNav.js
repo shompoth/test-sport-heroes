@@ -28,45 +28,53 @@ export const BottomNavigator = () => {
             }}
         >
             <BottomTab.Screen
-                name="Magazine"
+                name="Magazine screen"
                 component={MagazineNavigator}
                 options={{
+                    title: "Magazine",
+
                     tabBarIcon: ({ color, size }) => (
                         <MaterialIcons name="smartphone" size={size} color={color} />
                     ),
                 }}
             />
             <BottomTab.Screen
-                name="Challenges"
+                name="Challenges screen"
                 component={ChallengesNavigator}
                 options={{
+                    title: "Challenges",
+
                     tabBarIcon: ({ color, size }) => (
                         <MaterialIcons name="flag" size={size} color={color} />
                     ),
                 }}
             />
             <BottomTab.Screen
-                name="Dashboard"
+                name="Dashboard screen"
                 component={DashboardNavigator}
                 options={{
+                    title: "Dashboard",
+
                     tabBarIcon: ({ color, size }) => (
                         <MaterialIcons name="bolt" size={size} color={color} />
                     ),
                 }}
             />
             <BottomTab.Screen
-                name="Équipe"
+                name="Squads screen"
                 component={SquadNavigator}
                 options={{
+                    title: "Équipes",
                     tabBarIcon: ({ color, size }) => (
                         <MaterialIcons name="groups" size={size} color={color} />
                     ),
                 }}
             />
             <BottomTab.Screen
-                name="Plus"
+                name="More screen"
                 component={MoreNavigator}
                 options={{
+                    title: "Plus",
                     tabBarIcon: ({ color, size }) => (
                         <MaterialIcons name="more-horiz" size={size} color={color} />
                     ),

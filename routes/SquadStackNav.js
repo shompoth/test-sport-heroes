@@ -8,7 +8,7 @@ const SquadStack = createStackNavigator();
 export const SquadNavigator = () => {
     return (
         <SquadStack.Navigator>
-            <SquadStack.Screen name="Squad" component={Squad} />
+            <SquadStack.Screen name="Équipes" component={Squad} />
         </SquadStack.Navigator>
     );
 };
