@@ -1,6 +1,10 @@
 import { Image } from "react-native";
 
+// StackNav
 import { createStackNavigator } from "@react-navigation/stack";
+
+// Redux
+import { useSelector } from "react-redux";
 
 // Screen
 import More from "../screens/More";
@@ -12,11 +16,14 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 const MoreStack = createStackNavigator();
 
 export const MoreNavigator = () => {
+    // UseSelector
+    const { backgroundColorDark, textColorWhite } = useSelector(state => state.styles);
+
     return (
         <MoreStack.Navigator
             screenOptions={{
-                headerTintColor: globalStyles.white,
-                headerStyle: { backgroundColor: globalStyles.dark },
+                headerTintColor: textColorWhite,
+                headerStyle: { backgroundColor: backgroundColorDark },
             }}
         >
             <MoreStack.Screen

@@ -8,6 +8,9 @@ import { MagazineNavigator } from "./MagazineStackNav";
 import { MoreNavigator } from "./MoreStackNav";
 import { SquadNavigator } from "./SquadStackNav";
 
+// Redux
+import { useSelector } from "react-redux";
+
 //Styles
 import globalStyles from "../styles/globalStyles";
 
@@ -17,13 +20,16 @@ import { MaterialIcons } from "@expo/vector-icons";
 const BottomTab = createBottomTabNavigator();
 
 export const BottomNavigator = () => {
+    // UseSelector
+    const { backgroundColorDark, textColorWhite } = useSelector(state => state.styles);
+
     return (
         <BottomTab.Navigator
             initialRouteName="Dashboard screen"
             screenOptions={{
                 headerShown: false,
                 tabBarActiveTintColor: globalStyles.primary,
-                tabBarStyle: { backgroundColor: globalStyles.dark },
+                tabBarStyle: { backgroundColor: backgroundColorDark },
             }}
         >
             <BottomTab.Screen

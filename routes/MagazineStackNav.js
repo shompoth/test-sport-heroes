@@ -1,22 +1,28 @@
 import { Image } from "react-native";
 
+// StackNav
 import { createStackNavigator } from "@react-navigation/stack";
+
+// Redux
+import { useSelector } from "react-redux";
 
 // Screen
 import Magazine from "../screens/Magazine";
 
 // Styles
-import globalStyles from "../styles/globalStyles";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const MagazineStack = createStackNavigator();
 
 export const MagazineNavigator = () => {
+    // UseSelector
+    const { backgroundColorDark, textColorWhite } = useSelector(state => state.styles);
+
     return (
         <MagazineStack.Navigator
             screenOptions={{
-                headerTintColor: globalStyles.white,
-                headerStyle: { backgroundColor: globalStyles.dark },
+                headerTintColor: textColorWhite,
+                headerStyle: { backgroundColor: backgroundColorDark },
             }}
         >
             <MagazineStack.Screen

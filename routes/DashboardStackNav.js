@@ -1,6 +1,9 @@
 import { Image, TouchableOpacity } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 
+// Redux
+import { useSelector } from "react-redux";
+
 // Image
 import profil from "../assets/shompoth.png";
 
@@ -16,10 +19,12 @@ import globalStyles from "../styles/globalStyles";
 const DashboardStack = createStackNavigator();
 
 export const DashboardNavigator = () => {
+    // UseSelector
+    const { backgroundColorDark, textColorWhite } = useSelector(state => state.styles);
     return (
         <DashboardStack.Navigator
             screenOptions={{
-                headerStyle: { backgroundColor: globalStyles.dark },
+                headerStyle: { backgroundColor: backgroundColorDark },
             }}
         >
             <DashboardStack.Screen

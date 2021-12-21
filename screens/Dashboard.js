@@ -1,49 +1,49 @@
 import React, { useState, useEffect } from "react";
-import { SafeAreaView, StyleSheet, Text, View, FlatList, Button } from "react-native";
-import axios from "axios";
+import { StyleSheet, Text, View, FlatList, Button, SafeAreaView } from "react-native";
 
 // Composants
 import ActvityPerDay from "../components/ActivityPerDay/ActvityPerDay";
 import Spinner from "../shared/Spinner/Spinner";
 
-// Styles
-import globalStyles from "../styles/globalStyles";
+// Redux
+import { useSelector, useDispatch } from "react-redux";
+import { getData } from "../redux/actions/actionGetData";
 
 const Dashboard = () => {
-    const [data, setData] = useState([]);
+    const { data } = useSelector(state => state.data);
+    const { backgroundColorDark } = useSelector(state => state.styles);
+    const dispatch = useDispatch();
+
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        axios
-            .get(
-                "https://sh-tech-interview.s3.eu-west-3.amazonaws.com/frontend/feed.json",
-            )
-            .then(res => {
-                const activitiesArray = [];
-                activitiesArray.push(...res.data.data);
-
-                setData(activitiesArray);
-                setIsLoading(false);
-            })
-            .catch(error => {
-                console.log(error);
-            });
+        dispatch(getData());
+        setIsLoading(false);
     }, []);
 
     return !isLoading ? (
         data.length > 0 ? (
-            <View style={styles.container}>
-                <FlatList
-                    data={data}
-                    renderItem={({ item }) => <ActvityPerDay item={item} />}
-                    keyExtractor={item => item.resourceId}
-                />
+            <View style={{ ...styles.container, backgroundColor: backgroundColorDark }}>
+                <SafeAreaView>
+                    <FlatList
+                        data={data}
+                        renderItem={({ item }) => <ActvityPerDay item={item} />}
+                        keyExtractor={item => item.resourceId}
+                    />
+                </SafeAreaView>
             </View>
         ) : (
-            <Text>Not data yet</Text>
+            <View style={{ ...styles.container, backgroundColor: backgroundColorDark }}>
+                <Text>Not data yet</Text>
+            </View>
         )
     ) : (
-        <View style={styles.container}>
+        <View
+            style={{
+                ...styles.spinner,
+                backgroundColor: backgroundColorDark,
+            }}
+        >
             <Spinner />
         </View>
     );
@@ -56,6 +56,11 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         padding: 10,
-        backgroundColor: globalStyles.dark,
+    },
+    spinner: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 10,
     },
 });

@@ -6,11 +6,16 @@ import SvgFlag from "../../../../shared/SvgIcon/SvgFlag";
 
 // Styles
 import defaultStyles from "../../../../styles/defaultStyles";
-import globalStyles from "../../../../styles/globalStyles";
+
+// Redux
+import { useSelector } from "react-redux";
 
 const Challenge = ({ title, start = null, end = null, badge = null }) => {
     // State
     const [isOpen, setIsOpen] = useState(false);
+
+    // UseSelector
+    const { textColorWhite } = useSelector(state => state.styles);
 
     const newBadge = badge;
 
@@ -26,11 +31,11 @@ const Challenge = ({ title, start = null, end = null, badge = null }) => {
                 </View>
                 <View>
                     <View style={defaultStyles.mb3}>
-                        <Text style={{ color: globalStyles.white }}>
+                        <Text style={{ color: textColorWhite }}>
                             Challenge {start && (end ? "complété" : "à finir")}
                         </Text>
                     </View>
-                    <Text style={{ color: globalStyles.white }}>{title}</Text>
+                    <Text style={{ color: textColorWhite }}>{title}</Text>
                 </View>
             </View>
             <View style={styles.imageDiv}>

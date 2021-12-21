@@ -1,6 +1,10 @@
 import { Image } from "react-native";
 
+// StackNav
 import { createStackNavigator } from "@react-navigation/stack";
+
+// Redux
+import { useSelector } from "react-redux";
 
 // Screen
 import Challenges from "../screens/Challenges";
@@ -12,11 +16,14 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 const ChallengesStack = createStackNavigator();
 
 export const ChallengesNavigator = () => {
+    // UseSelector
+    const { backgroundColorDark, textColorWhite } = useSelector(state => state.styles);
+
     return (
         <ChallengesStack.Navigator
             screenOptions={{
-                headerTintColor: globalStyles.white,
-                headerStyle: { backgroundColor: globalStyles.dark },
+                headerTintColor: textColorWhite,
+                headerStyle: { backgroundColor: backgroundColorDark },
             }}
         >
             <ChallengesStack.Screen

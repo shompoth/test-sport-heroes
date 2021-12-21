@@ -2,16 +2,18 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 // Composants
-// import Activity from "./Type/Activity/Activity";
 import Bonus from "../../components/ActivityPerDay/Type/Bonus/Bonus";
 import Challenge from "../../components/ActivityPerDay/Type/Challenge/Challenge";
 import Cycling from "./Type/Activity/Cycling/Cycling";
 import Walking from "./Type/Activity/Walking/Walking";
 
-// Styles
-import globalStyles from "../../styles/globalStyles";
+// Redux
+import { useSelector } from "react-redux";
 
 const ActvityPerDay = ({ item }) => {
+    // UseSelector
+    const { textColorWhite } = useSelector(state => state.styles);
+
     // Fonctions
     const getDate = date => {
         const newDate = new Date(date);
@@ -55,7 +57,9 @@ const ActvityPerDay = ({ item }) => {
     return (
         <View style={styles.containerActivity}>
             <View style={styles.divDateStyle}>
-                <Text style={styles.textDateStyle}>{getDate(item.date)} </Text>
+                <Text style={{ ...styles.textDateStyle, color: textColorWhite }}>
+                    {getDate(item.date)}{" "}
+                </Text>
             </View>
             <View>{getComponentByType(item.type, item)}</View>
         </View>
@@ -74,6 +78,5 @@ const styles = StyleSheet.create({
     },
     textDateStyle: {
         fontWeight: "bold",
-        color: globalStyles.white,
     },
 });

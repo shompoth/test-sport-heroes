@@ -5,13 +5,19 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 
 // Styles
-import globalStyles from "../../../../../styles/globalStyles";
 import defaultStyles from "../../../../../styles/defaultStyles";
+import globalStyles from "../../../../../styles/globalStyles";
+
+// Redux
+import { useSelector } from "react-redux";
 
 // SVG
 import SvgBiking from "../../../../../shared/SvgIcon/SvgBiking";
 
 const Cycling = ({ distance, duration, points }) => {
+    // UseSelector
+    const { textColorWhite } = useSelector(state => state.styles);
+
     // Fonction
     const convertToKm = num => (num / 1000).toFixed(1).replace(/[.,]0$/, "");
 
@@ -40,21 +46,21 @@ const Cycling = ({ distance, duration, points }) => {
                 </View>
                 <View>
                     <View style={defaultStyles.mb3}>
-                        <Text style={{ color: globalStyles.white }}>Vélo</Text>
+                        <Text style={{ color: textColorWhite }}>Vélo</Text>
                     </View>
                     <View style={defaultStyles.flexRow}>
-                        <Text style={{ color: globalStyles.white }}>
+                        <Text style={{ color: textColorWhite }}>
                             {convertToKm(distance)} km
                         </Text>
-                        <Text style={{ color: globalStyles.white }}> - </Text>
-                        <Text style={{ color: globalStyles.white }}>
+                        <Text style={{ color: textColorWhite }}> - </Text>
+                        <Text style={{ color: textColorWhite }}>
                             {convertToHours(duration)}
                         </Text>
                     </View>
                 </View>
             </View>
             <View style={defaultStyles.flexRow}>
-                <Text style={{ color: globalStyles.white }}>{points}</Text>
+                <Text style={{ color: textColorWhite }}>{points}</Text>
                 <MaterialIcons name="bolt" size={17} color={globalStyles.primary} />
             </View>
         </TouchableOpacity>

@@ -8,10 +8,16 @@ import { MaterialIcons } from "@expo/vector-icons";
 import globalStyles from "../../../../../styles/globalStyles";
 import defaultStyles from "../../../../../styles/defaultStyles";
 
+// Redux
+import { useSelector } from "react-redux";
+
 // Svg
 import SvgWalking from "../../../../../shared/SvgIcon/SvgWalking";
 
 const Walking = ({ steps, points }) => {
+    // UseSelector
+    const { textColorWhite } = useSelector(state => state.styles);
+
     // Fonction
     const numberSpace = number => {
         const splitNumString = number.toString().replace(/(\d)(?=(\d{3})+$)/g, "$1 ");
@@ -26,15 +32,15 @@ const Walking = ({ steps, points }) => {
                 </View>
                 <View>
                     <View style={defaultStyles.mb3}>
-                        <Text style={{ color: globalStyles.white }}>Marche</Text>
+                        <Text style={{ color: textColorWhite }}>Marche</Text>
                     </View>
-                    <Text style={{ color: globalStyles.white }}>
+                    <Text style={{ color: textColorWhite }}>
                         {numberSpace(steps)} pas
                     </Text>
                 </View>
             </View>
             <View style={defaultStyles.flexRow}>
-                <Text style={{ color: globalStyles.white }}>{points}</Text>
+                <Text style={{ color: textColorWhite }}>{points}</Text>
                 <MaterialIcons name="bolt" size={17} color={globalStyles.primary} />
             </View>
         </TouchableOpacity>

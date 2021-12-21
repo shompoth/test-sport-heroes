@@ -1,6 +1,10 @@
 import { Image } from "react-native";
 
+// StackNav
 import { createStackNavigator } from "@react-navigation/stack";
+
+// Redux
+import { useSelector } from "react-redux";
 
 // Screen
 import Squad from "../screens/Squad";
@@ -12,12 +16,14 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 const SquadStack = createStackNavigator();
 
 export const SquadNavigator = () => {
+    // UseSelector
+    const { backgroundColorDark, textColorWhite } = useSelector(state => state.styles);
+
     return (
         <SquadStack.Navigator
             screenOptions={{
-                headerTintColor: globalStyles.white,
-
-                headerStyle: { backgroundColor: globalStyles.dark },
+                headerTintColor: textColorWhite,
+                headerStyle: { backgroundColor: backgroundColorDark },
             }}
         >
             <SquadStack.Screen
